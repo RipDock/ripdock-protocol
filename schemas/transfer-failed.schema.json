@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ripdock.org/schemas/transfer-failed.schema.json",
+  "title": "transfer.failed",
+  "description": "Endpoint notification that a file transfer failed or was rejected.",
+  "type": "object",
+  "required": ["type", "protocol_version", "conversation_id", "payload"],
+  "properties": {
+    "type": { "const": "transfer.failed" },
+    "protocol_version": { "const": "1" },
+    "conversation_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "payload": {
+      "type": "object",
+      "required": ["message", "code"],
+      "properties": {
+        "transfer_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "message": {
+          "type": "string",
+          "minLength": 1
+        },
+        "code": {
+          "type": "string",
+          "enum": [
+            "transfer.invalid_request",
+            "transfer.unsupported_mime_type",
+            "transfer.file_too_large",
+            "transfer.invalid_chunk",
+            "transfer.chunk_too_large",
+            "transfer.invalid_completion",
+            "transfer.byte_count_mismatch",
+            "transfer.missing_completion",
+            "transfer.failed"
+          ]
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

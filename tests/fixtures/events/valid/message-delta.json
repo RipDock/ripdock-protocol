@@ -1,0 +1,5 @@
+{
+  "type": "message.delta",
+  "protocol_version": "1",
+  "delta": "value"
+}

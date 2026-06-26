@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ripdock.org/schemas/trust-state.schema.json",
+  "title": "TrustState",
+  "description": "Trust state for an App Device and Runtime relationship.",
+  "type": "string",
+  "enum": [
+    "unpaired",
+    "pendingApproval",
+    "trusted",
+    "rejected",
+    "expired",
+    "notFound",
+    "identityMismatch",
+    "revoked",
+    "disabled"
+  ]
+}

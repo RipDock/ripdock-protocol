@@ -1,0 +1,8 @@
+{
+  "type": "runtime.artifact.created",
+  "protocol_version": "1",
+  "artifact_id": "artifact-id-1",
+  "filename": "Name",
+  "mime_type": "image/png",
+  "size_bytes": 1
+}

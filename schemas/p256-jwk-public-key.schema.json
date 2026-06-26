@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ripdock.org/schemas/p256-jwk-public-key.schema.json",
+  "title": "P256JWKPublicKey",
+  "description": "P-256 public key encoded as a strict JWK-compatible object. key_id is SHA-256 over raw x || y bytes, lowercase hex.",
+  "type": "object",
+  "required": ["kty", "crv", "x", "y", "key_id"],
+  "properties": {
+    "kty": {
+      "const": "EC"
+    },
+    "crv": {
+      "const": "P-256"
+    },
+    "x": {
+      "description": "P-256 x coordinate, base64url without padding.",
+      "type": "string",
+      "pattern": "^[A-Za-z0-9_-]{43}$"
+    },
+    "y": {
+      "description": "P-256 y coordinate, base64url without padding.",
+      "type": "string",
+      "pattern": "^[A-Za-z0-9_-]{43}$"
+    },
+    "key_id": {
+      "description": "SHA-256 over the raw P-256 coordinate bytes x || y, encoded as 64 lowercase hex characters.",
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    }
+  },
+  "additionalProperties": false
+}

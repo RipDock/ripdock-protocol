@@ -1,0 +1,34 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ripdock.org/schemas/pairing-qr-payload.schema.json",
+  "title": "Pairing QR Payload",
+  "description": "Payload encoded by Runtimes into QR codes for App Pairing.",
+  "type": "object",
+  "properties": {
+    "runtime_url": {
+      "type": "string",
+      "pattern": "^wss://[^\\s]+/ripdock/app/pair/[0-9]{6}$"
+    },
+    "runtime_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "runtime_public_key": {
+      "$ref": "./p256-jwk-public-key.schema.json"
+    },
+    "runtime_public_key_fingerprint": {
+      "description": "MUST equal runtime_public_key.key_id.",
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "runtime_identity": {
+      "$ref": "./runtime-identity-model.schema.json"
+    },
+    "pairing_code": {
+      "type": "string",
+      "pattern": "^[0-9]{6}$"
+    }
+  },
+  "required": ["runtime_url", "pairing_code"],
+  "additionalProperties": false
+}

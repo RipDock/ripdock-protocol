@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ripdock.org/schemas/session-disconnected.schema.json",
+  "title": "session.disconnected",
+  "description": "Notification that one side of a durable Session is temporarily disconnected.",
+  "type": "object",
+  "required": ["type", "protocol_version", "session_id"],
+  "properties": {
+    "type": { "const": "session.disconnected" },
+    "protocol_version": { "const": "1" },
+    "session_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "role": {
+      "enum": ["app", "runtime"]
+    },
+    "reason": {
+      "type": "string"
+    },
+    "disconnected_at": {
+      "type": "string",
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}(\\.[0-9]+)?Z$"
+    },
+    "recoverable": {
+      "type": "boolean"
+    }
+  },
+  "additionalProperties": false
+}

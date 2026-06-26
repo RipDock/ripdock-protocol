@@ -1,0 +1,63 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ripdock.org/schemas/error.schema.json",
+  "title": "error",
+  "type": "object",
+  "required": ["type", "protocol_version", "code", "message"],
+  "properties": {
+    "type": { "const": "error" },
+    "protocol_version": { "const": "1" },
+    "conversation_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "message": {
+      "type": "string",
+      "minLength": 1
+    },
+    "code": {
+      "type": "string",
+      "enum": [
+        "transport.invalid_json",
+        "transport.invalid_message",
+        "transport.missing_type",
+        "message.too_large",
+        "message.runtime_mismatch",
+        "agent.unavailable",
+        "conversation.not_found",
+        "pairing.invalid",
+        "pairing.rate_limited",
+        "authorization.denied",
+        "protocol.invalid_payload",
+        "session.resume_required",
+        "session.expired",
+        "session.invalid",
+        "session.revoked",
+        "session.signature_invalid",
+        "runtime.rate_limited",
+        "runtime.unavailable",
+        "transfer.invalid_request",
+        "transfer.unsupported_mime_type",
+        "transfer.file_too_large",
+        "transfer.invalid_chunk",
+        "transfer.chunk_too_large",
+        "transfer.invalid_completion",
+        "transfer.byte_count_mismatch",
+        "transfer.missing_completion",
+        "transfer.failed",
+        "runtime.transfer.unknown",
+        "runtime.transfer.wrong_mode",
+        "runtime.transfer.missing_file",
+        "runtime.transfer.invalid_chunk",
+        "runtime.transfer.file_too_large",
+        "runtime.transfer.size_mismatch",
+        "runtime.transfer.timeout",
+        "runtime.transfer.failed"
+      ]
+    },
+    "connection_security_error": {
+      "$ref": "./connection-security-error.schema.json"
+    }
+  },
+  "additionalProperties": false
+}

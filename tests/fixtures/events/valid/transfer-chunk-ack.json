@@ -1,0 +1,9 @@
+{
+  "type": "transfer.chunk.ack",
+  "protocol_version": "1",
+  "conversation_id": "conversation-id-1",
+  "payload": {
+    "transfer_id": "transfer-id-1",
+    "received_bytes": 1
+  }
+}

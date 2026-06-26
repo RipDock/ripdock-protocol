@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ripdock.org/schemas/transfer-complete.schema.json",
+  "title": "transfer.complete",
+  "description": "Transfer-socket control frame sent by the uploader after all binary chunks have been sent.",
+  "type": "object",
+  "required": ["type", "protocol_version", "conversation_id", "payload"],
+  "properties": {
+    "type": { "const": "transfer.complete" },
+    "protocol_version": { "const": "1" },
+    "conversation_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "payload": {
+      "type": "object",
+      "required": ["transfer_id", "size_bytes"],
+      "properties": {
+        "transfer_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "size_bytes": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 10485760
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

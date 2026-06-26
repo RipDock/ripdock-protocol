@@ -1,0 +1,118 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ripdock.org/schemas/runtime-settings.schema.json",
+  "title": "runtime.settings",
+  "description": "Runtime-advertised settings definitions. The Runtime owns Runtime-specific settings; the App owns presentation.",
+  "type": "object",
+  "required": ["type", "protocol_version", "runtime_id", "settings"],
+  "properties": {
+    "type": { "const": "runtime.settings" },
+    "protocol_version": { "const": "1" },
+    "runtime_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "runtime_type": {
+      "type": "string",
+      "minLength": 1
+    },
+    "display_name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "settings": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/setting_definition"
+      }
+    }
+  },
+  "$defs": {
+    "setting_value": {
+      "oneOf": [
+        { "type": "boolean" },
+        { "type": "string" },
+        { "type": "number" },
+        { "type": "null" }
+      ]
+    },
+    "enum_value": {
+      "oneOf": [
+        {
+          "type": "string",
+          "minLength": 1
+        },
+        {
+          "type": "object",
+          "required": ["value", "label"],
+          "properties": {
+            "value": {
+              "type": "string",
+              "minLength": 1
+            },
+            "label": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "additionalProperties": false
+        }
+      ]
+    },
+    "setting_definition": {
+      "type": "object",
+      "required": ["key", "label", "type"],
+      "properties": {
+        "key": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9_.:-]+$"
+        },
+        "label": {
+          "type": "string",
+          "minLength": 1
+        },
+        "type": {
+          "enum": ["boolean", "string", "number", "enum", "action"]
+        },
+        "default": {
+          "$ref": "#/$defs/setting_value"
+        },
+        "category": {
+          "type": "string",
+          "minLength": 1
+        },
+        "section": {
+          "type": "string",
+          "minLength": 1
+        },
+        "developer_only": {
+          "type": "boolean"
+        },
+        "enum_values": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/enum_value"
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "type": { "const": "enum" }
+            },
+            "required": ["type"]
+          },
+          "then": {
+            "required": ["enum_values"]
+          }
+        }
+      ],
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

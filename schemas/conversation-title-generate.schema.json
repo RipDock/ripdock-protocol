@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ripdock.org/schemas/conversation-title-generate.schema.json",
+  "title": "conversation.title.generate",
+  "description": "App request to generate a title for an existing Runtime Agent conversation without creating durable conversation history.",
+  "type": "object",
+  "required": ["type", "protocol_version", "runtime_id", "agent_id", "conversation_id", "messages"],
+  "properties": {
+    "type": { "const": "conversation.title.generate" },
+    "protocol_version": { "const": "1" },
+    "runtime_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "agent_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "conversation_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "messages": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 12,
+      "items": {
+        "$ref": "#/$defs/title_source_message"
+      }
+    }
+  },
+  "$defs": {
+    "title_source_message": {
+      "type": "object",
+      "required": ["role", "content"],
+      "properties": {
+        "role": {
+          "enum": ["user", "assistant"]
+        },
+        "content": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 4000,
+          "pattern": "\\S"
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

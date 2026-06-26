@@ -1,0 +1,9 @@
+{
+  "type": "message.block",
+  "protocol_version": "1",
+  "block": {
+    "kind": "text",
+    "mime_type": "text/plain",
+    "content": "Hello."
+  }
+}

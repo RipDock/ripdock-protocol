@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ripdock.org/schemas/endpoint-policy.schema.json",
+  "title": "endpoint.policy",
+  "description": "Endpoint policy event advertising protocol message limits.",
+  "type": "object",
+  "required": ["type", "protocol_version", "payload"],
+  "properties": {
+    "type": { "const": "endpoint.policy" },
+    "protocol_version": { "const": "1" },
+    "payload": {
+      "type": "object",
+      "required": ["max_message_bytes"],
+      "properties": {
+        "max_message_bytes": {
+          "type": "integer",
+          "minimum": 4096,
+          "maximum": 1048576
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

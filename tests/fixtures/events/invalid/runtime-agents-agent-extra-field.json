@@ -1,0 +1,12 @@
+{
+  "type": "runtime.agents",
+  "protocol_version": "1",
+  "runtime_id": "runtime-1",
+  "agents": [
+    {
+      "agent_id": "agent-1",
+      "display_name": "Agent",
+      "unexpected": true
+    }
+  ]
+}

@@ -1,0 +1,137 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ripdock.org/schemas/runtime-agents.schema.json",
+  "title": "runtime.agents",
+  "description": "Runtime-advertised Agent definitions. Pairing and transport are Runtime-scoped; chat identity and display metadata are Agent-scoped.",
+  "type": "object",
+  "required": ["type", "protocol_version", "runtime_id", "agents"],
+  "properties": {
+    "type": { "const": "runtime.agents" },
+    "protocol_version": { "const": "1" },
+    "runtime_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "agents": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/agent_definition"
+      }
+    }
+  },
+  "$defs": {
+    "setting_value": {
+      "oneOf": [
+        { "type": "boolean" },
+        { "type": "string" },
+        { "type": "number" },
+        { "type": "null" }
+      ]
+    },
+    "setting_definition": {
+      "type": "object",
+      "required": ["key", "label", "type"],
+      "properties": {
+        "key": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9_.:-]+$"
+        },
+        "label": {
+          "type": "string",
+          "minLength": 1
+        },
+        "type": {
+          "enum": ["boolean", "string", "number", "enum", "action"]
+        },
+        "default": {
+          "$ref": "#/$defs/setting_value"
+        },
+        "enum_values": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/enum_value"
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "type": {
+                "const": "enum"
+              }
+            },
+            "required": ["type"]
+          },
+          "then": {
+            "required": ["enum_values"]
+          }
+        }
+      ],
+      "additionalProperties": false
+    },
+    "enum_value": {
+      "oneOf": [
+        {
+          "type": "string",
+          "minLength": 1
+        },
+        {
+          "type": "object",
+          "required": ["value", "label"],
+          "properties": {
+            "value": {
+              "type": "string",
+              "minLength": 1
+            },
+            "label": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "additionalProperties": false
+        }
+      ]
+    },
+    "agent_definition": {
+      "type": "object",
+      "required": ["agent_id", "display_name"],
+      "properties": {
+        "agent_id": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9_.:-]+$"
+        },
+        "display_name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "icon": {
+          "type": "string",
+          "description": "Runtime-owned emoji icon. Non-emoji icon names, platform symbol names, image tokens, URLs, and asset identifiers are invalid."
+        },
+        "accent_color": {
+          "type": "string"
+        },
+        "background_color": {
+          "type": "string"
+        },
+        "sort_order": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "settings": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/setting_definition"
+          }
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

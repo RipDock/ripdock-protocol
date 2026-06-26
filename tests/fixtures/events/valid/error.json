@@ -1,0 +1,6 @@
+{
+  "type": "error",
+  "protocol_version": "1",
+  "code": "transport.invalid_json",
+  "message": "Message."
+}

@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ripdock.org/schemas/runtime-metadata-response.schema.json",
+  "title": "RuntimeMetadataResponse",
+  "description": "Trusted Runtime-owned UI metadata response. Apps must not fetch this before Pairing has established trust.",
+  "type": "object",
+  "required": ["runtimeMetadata"],
+  "properties": {
+    "runtimeMetadata": {
+      "$ref": "./runtime-metadata.schema.json"
+    },
+    "runtimeAgents": {
+      "description": "Enabled App-visible Agent definitions. MUST be returned only for trusted Devices.",
+      "type": "array",
+      "items": {
+        "$ref": "./runtime-agents.schema.json#/$defs/agent_definition"
+      },
+      "default": []
+    }
+  },
+  "additionalProperties": false
+}

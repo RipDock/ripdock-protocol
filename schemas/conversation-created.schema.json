@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ripdock.org/schemas/conversation-created.schema.json",
+  "title": "conversation.created",
+  "description": "Runtime response announcing a newly created Runtime-owned conversation.",
+  "type": "object",
+  "required": ["type", "protocol_version", "runtime_id", "agent_id", "conversation_id", "client_message_id", "created_at"],
+  "properties": {
+    "type": { "const": "conversation.created" },
+    "protocol_version": { "const": "1" },
+    "runtime_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "agent_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "conversation_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "client_message_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "created_at": {
+      "$ref": "./conversation-listed.schema.json#/$defs/protocol_timestamp"
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1
+    }
+  },
+  "additionalProperties": false
+}

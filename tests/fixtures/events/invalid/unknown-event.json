@@ -1,0 +1,9 @@
+{
+  "type": "transfer.completed.v2",
+  "protocol_version": "1",
+  "conversation_id": "conversation-1",
+  "payload": {
+    "transfer_id": "transfer-1",
+    "size_bytes": 1024
+  }
+}

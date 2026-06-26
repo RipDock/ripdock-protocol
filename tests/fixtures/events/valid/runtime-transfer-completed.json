@@ -1,0 +1,10 @@
+{
+  "type": "runtime.transfer.completed",
+  "protocol_version": "1",
+  "payload": {
+    "transfer_id": "transfer-id-1",
+    "artifact_id": "artifact-id-1",
+    "size_bytes": 1,
+    "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+  }
+}

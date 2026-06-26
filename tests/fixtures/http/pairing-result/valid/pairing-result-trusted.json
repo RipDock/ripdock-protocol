@@ -1,0 +1,12 @@
+{
+  "runtimeId": "runtime-1",
+  "deviceId": "device-1",
+  "trustState": "trusted",
+  "message": "Device is trusted.",
+  "session_id": "session-1",
+  "runtimeMetadata": {
+    "displayName": "Runtime",
+    "backgroundColor": "#ffffff"
+  },
+  "runtimeAgents": []
+}

@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ripdock.org/schemas/runtime-metadata.schema.json",
+  "title": "RuntimeMetadata",
+  "description": "Runtime-owned display metadata consumed by Apps. RuntimeIdentity remains the immutable cryptographic identity.",
+  "type": "object",
+  "required": [
+    "displayName",
+    "backgroundColor"
+  ],
+  "properties": {
+    "displayName": {
+      "type": "string",
+      "minLength": 1
+    },
+    "icon": {
+      "type": ["string", "null"],
+      "description": "Runtime-owned emoji icon. Non-emoji icon names, platform symbol names, image tokens, URLs, and asset identifiers are invalid."
+    },
+    "accentColor": {
+      "type": ["string", "null"]
+    },
+    "backgroundColor": {
+      "type": "string",
+      "minLength": 1,
+      "default": "#ffffff"
+    }
+  },
+  "additionalProperties": false
+}

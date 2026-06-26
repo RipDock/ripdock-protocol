@@ -1,0 +1,6 @@
+{
+  "type": "pairing.created",
+  "protocol_version": "1",
+  "pairing_code": "123456",
+  "session_id": "session-id-1"
+}

@@ -1,0 +1,15 @@
+{
+  "type": "session.resume",
+  "protocol_version": "1",
+  "session_id": "session-1",
+  "runtime_id": "runtime-1",
+  "app_device_id": "device-1",
+  "resume_signature": {
+    "alg": "RS256",
+    "key_id": "key-1",
+    "nonce": "nonce-1234567890",
+    "timestamp": "2026-01-01T00:00:00Z",
+    "route": "/ripdock/app",
+    "signature": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+  }
+}

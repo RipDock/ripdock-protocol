@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ripdock.org/schemas/message-cancel.schema.json",
+  "title": "message.cancel",
+  "description": "Cancellation request.",
+  "type": "object",
+  "required": ["type", "protocol_version", "conversation_id", "message_id"],
+  "properties": {
+    "type": { "const": "message.cancel" },
+    "protocol_version": { "const": "1" },
+    "conversation_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "message_id": {
+      "type": "string",
+      "minLength": 1
+    }
+  },
+  "additionalProperties": false
+}

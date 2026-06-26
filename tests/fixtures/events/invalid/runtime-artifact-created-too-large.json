@@ -1,0 +1,8 @@
+{
+  "type": "runtime.artifact.created",
+  "protocol_version": "1",
+  "artifact_id": "artifact-1",
+  "filename": "artifact.txt",
+  "mime_type": "text/plain",
+  "size_bytes": 10485761
+}

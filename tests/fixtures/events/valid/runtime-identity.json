@@ -1,0 +1,29 @@
+{
+  "type": "runtime.identity",
+  "protocol_version": "1",
+  "runtime_id": "runtime-id-1",
+  "display_name": "Name",
+  "runtime_public_key": {
+    "kty": "EC",
+    "crv": "P-256",
+    "x": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+    "y": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+    "key_id": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+  },
+  "runtime_public_key_fingerprint": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "runtime_identity_created_at": "2026-01-01T00:00:00Z",
+  "runtime_identity": {
+    "runtimeId": "123e4567-e89b-12d3-a456-426614174000",
+    "displayName": "Name",
+    "publicKey": {
+      "kty": "EC",
+      "crv": "P-256",
+      "x": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+      "y": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+      "key_id": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+    },
+    "publicKeyFingerprint": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "createdAt": "2026-01-01T00:00:00Z",
+    "protocolVersion": "1"
+  }
+}

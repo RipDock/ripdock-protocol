@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ripdock.org/schemas/conversation-title-generated.schema.json",
+  "title": "conversation.title.generated",
+  "description": "Runtime response containing a generated title for an existing Runtime Agent conversation.",
+  "type": "object",
+  "required": ["type", "protocol_version", "runtime_id", "agent_id", "conversation_id", "title"],
+  "properties": {
+    "type": { "const": "conversation.title.generated" },
+    "protocol_version": { "const": "1" },
+    "runtime_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "agent_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "conversation_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 80,
+      "pattern": "\\S"
+    }
+  },
+  "additionalProperties": false
+}

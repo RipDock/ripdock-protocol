@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ripdock.org/schemas/pong.schema.json",
+  "title": "pong",
+  "type": "object",
+  "required": ["type", "protocol_version"],
+  "properties": {
+    "type": { "const": "pong" },
+    "protocol_version": { "const": "1" }
+  },
+  "additionalProperties": false
+}
+

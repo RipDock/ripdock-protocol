@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ripdock.org/schemas/runtime-transfer-failed.schema.json",
+  "title": "runtime.transfer.failed",
+  "description": "Runtime-originated generated artifact transfer failure event.",
+  "type": "object",
+  "required": ["type", "protocol_version", "payload"],
+  "properties": {
+    "type": { "const": "runtime.transfer.failed" },
+    "protocol_version": { "const": "1" },
+    "conversation_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "message_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "payload": {
+      "type": "object",
+      "required": ["transfer_id", "artifact_id", "message", "code"],
+      "properties": {
+        "transfer_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "artifact_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "message": {
+          "type": "string",
+          "minLength": 1
+        },
+        "code": {
+          "type": "string",
+          "enum": [
+            "runtime.transfer.unknown",
+            "runtime.transfer.wrong_mode",
+            "runtime.transfer.missing_file",
+            "runtime.transfer.invalid_chunk",
+            "runtime.transfer.file_too_large",
+            "runtime.transfer.size_mismatch",
+            "runtime.transfer.timeout",
+            "runtime.transfer.failed"
+          ]
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

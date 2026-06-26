@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ripdock.org/schemas/ping.schema.json",
+  "title": "ping",
+  "type": "object",
+  "required": ["type", "protocol_version"],
+  "properties": {
+    "type": { "const": "ping" },
+    "protocol_version": { "const": "1" }
+  },
+  "additionalProperties": false
+}

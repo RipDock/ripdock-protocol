@@ -1,0 +1,66 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ripdock.org/schemas/runtime-identity.schema.json",
+  "title": "runtime.identity",
+  "description": "Runtime identity event.",
+  "type": "object",
+  "required": [
+    "type",
+    "protocol_version",
+    "runtime_id",
+    "display_name",
+    "runtime_public_key",
+    "runtime_public_key_fingerprint",
+    "runtime_identity_created_at",
+    "runtime_identity"
+  ],
+  "properties": {
+    "type": { "const": "runtime.identity" },
+    "protocol_version": { "const": "1" },
+    "runtime_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "runtime_public_key_fingerprint": {
+      "description": "MUST equal runtime_public_key.key_id and runtime_identity.publicKeyFingerprint.",
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "runtime_identity_created_at": {
+      "type": "string",
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}(\\.[0-9]+)?Z$"
+    },
+    "runtime_identity": {
+      "$ref": "./runtime-identity-model.schema.json"
+    },
+    "runtime_metadata": {
+      "$ref": "./runtime-metadata.schema.json"
+    },
+    "runtime_type": {
+      "type": "string",
+      "minLength": 1
+    },
+    "display_name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "icon": {
+      "type": "string",
+      "description": "Runtime-owned emoji icon. Non-emoji icon names, platform symbol names, image tokens, URLs, and asset identifiers are invalid."
+    },
+    "accent_color": {
+      "type": "string"
+    },
+    "background_color": {
+      "type": "string",
+      "minLength": 1
+    },
+    "runtime_public_key": {
+      "$ref": "./p256-jwk-public-key.schema.json"
+    },
+    "runtime_version": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

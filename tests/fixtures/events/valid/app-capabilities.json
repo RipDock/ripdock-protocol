@@ -1,0 +1,39 @@
+{
+  "type": "app.capabilities",
+  "protocol_version": "1",
+  "payload": {
+    "content_types": [],
+    "features": {
+      "streaming": true,
+      "semantic_blocks": true,
+      "attachments": true,
+      "generated_artifacts": true,
+      "runtime_transfers": true,
+      "artifact_http_downloads": true,
+      "artifact_ack": true,
+      "inline_images": true,
+      "tool_cards": true,
+      "html": true
+    },
+    "client_capabilities": {
+      "content_rendering": {
+        "plain_text": true,
+        "basic_markdown": true,
+        "rich_text_v1": true,
+        "json": true,
+        "yaml": true,
+        "code_blocks": true,
+        "external_links": true
+      },
+      "rich_text_v1": {
+        "bold": true,
+        "italic": true,
+        "underline": true,
+        "inline_code": true,
+        "code_blocks": true,
+        "lists": true,
+        "quotes": true
+      }
+    }
+  }
+}

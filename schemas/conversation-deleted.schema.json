@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ripdock.org/schemas/conversation-deleted.schema.json",
+  "title": "conversation.deleted",
+  "description": "Runtime confirmation that one Runtime Agent conversation was deleted.",
+  "type": "object",
+  "required": ["type", "protocol_version", "runtime_id", "agent_id", "conversation_id"],
+  "properties": {
+    "type": { "const": "conversation.deleted" },
+    "protocol_version": { "const": "1" },
+    "runtime_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "agent_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "conversation_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "runtime_result": {
+      "$ref": "#/$defs/runtime_extension_object"
+    }
+  },
+  "$defs": {
+    "runtime_extension_object": {
+      "type": "object",
+      "propertyNames": {
+        "pattern": "^[a-z][a-z0-9_]{0,63}$"
+      },
+      "additionalProperties": {
+        "type": "object",
+        "additionalProperties": {}
+      }
+    }
+  },
+  "additionalProperties": false
+}

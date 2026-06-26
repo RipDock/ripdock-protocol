@@ -1,0 +1,14 @@
+{
+  "deviceId": "123e4567-e89b-12d3-a456-426614174000",
+  "deviceName": "iPhone",
+  "publicKey": {
+    "kty": "EC",
+    "crv": "P-256",
+    "x": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+    "y": "BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB",
+    "key_id": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+  },
+  "publicKeyFingerprint": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "createdAt": "2026-01-01T00:00:00Z",
+  "privateKey": "secret"
+}

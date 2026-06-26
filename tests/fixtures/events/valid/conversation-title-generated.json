@@ -1,0 +1,8 @@
+{
+  "type": "conversation.title.generated",
+  "protocol_version": "1",
+  "runtime_id": "runtime-id-1",
+  "agent_id": "agent-id-1",
+  "conversation_id": "conversation-id-1",
+  "title": "hello"
+}

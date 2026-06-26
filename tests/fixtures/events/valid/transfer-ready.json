@@ -1,0 +1,11 @@
+{
+  "type": "transfer.ready",
+  "protocol_version": "1",
+  "conversation_id": "conversation-id-1",
+  "payload": {
+    "transfer_id": "transfer-id-1",
+    "transfer_url": "wss://runtime.example/ripdock/transfer/transfer-1/app",
+    "max_file_bytes": 10485760,
+    "max_chunk_bytes": 1048576
+  }
+}

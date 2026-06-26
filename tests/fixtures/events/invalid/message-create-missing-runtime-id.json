@@ -1,0 +1,8 @@
+{
+  "type": "message.create",
+  "protocol_version": "1",
+  "agent_id": "agent-1",
+  "conversation_id": "conversation-1",
+  "client_message_id": "client-1",
+  "content": "Hello."
+}

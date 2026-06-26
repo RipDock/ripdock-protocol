@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ripdock.org/schemas/conversation-list.schema.json",
+  "title": "conversation.list",
+  "description": "App request to list durable Runtime-owned conversation summaries for one Runtime Agent.",
+  "type": "object",
+  "required": ["type", "protocol_version", "runtime_id", "agent_id"],
+  "properties": {
+    "type": { "const": "conversation.list" },
+    "protocol_version": { "const": "1" },
+    "runtime_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "agent_id": {
+      "type": "string",
+      "minLength": 1
+    }
+  },
+  "additionalProperties": false
+}

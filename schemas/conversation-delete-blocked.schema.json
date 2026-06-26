@@ -1,0 +1,37 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ripdock.org/schemas/conversation-delete-blocked.schema.json",
+  "title": "conversation.delete_blocked",
+  "description": "Runtime response that a conversation.delete request requires Runtime-specific confirmation.",
+  "type": "object",
+  "required": ["type", "protocol_version", "runtime_id", "agent_id", "conversation_id", "runtime_namespace", "reason", "message"],
+  "properties": {
+    "type": { "const": "conversation.delete_blocked" },
+    "protocol_version": { "const": "1" },
+    "runtime_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "agent_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "conversation_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "runtime_namespace": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9_]{0,63}$"
+    },
+    "reason": {
+      "type": "string",
+      "minLength": 1
+    },
+    "message": {
+      "type": "string",
+      "minLength": 1
+    }
+  },
+  "additionalProperties": false
+}

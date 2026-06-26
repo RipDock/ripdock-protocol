@@ -1,0 +1,10 @@
+{
+  "type": "runtime.transfer.failed",
+  "protocol_version": "1",
+  "payload": {
+    "transfer_id": "transfer-id-1",
+    "artifact_id": "artifact-id-1",
+    "message": "Message.",
+    "code": "runtime.transfer.unknown"
+  }
+}

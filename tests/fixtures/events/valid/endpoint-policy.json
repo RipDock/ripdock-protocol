@@ -1,0 +1,7 @@
+{
+  "type": "endpoint.policy",
+  "protocol_version": "1",
+  "payload": {
+    "max_message_bytes": 4096
+  }
+}

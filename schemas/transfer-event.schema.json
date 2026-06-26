@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ripdock.org/schemas/transfer-event.schema.json",
+  "title": "RipDock Transfer WebSocket Event",
+  "description": "JSON control events that may appear on a dedicated transfer WebSocket.",
+  "oneOf": [
+    { "$ref": "./transfer-chunk-ack.schema.json" },
+    { "$ref": "./transfer-complete.schema.json" },
+    { "$ref": "./transfer-completed.schema.json" },
+    { "$ref": "./transfer-failed.schema.json" }
+  ]
+}

@@ -1,0 +1,7 @@
+{
+  "type": "session.resume",
+  "protocol_version": "1",
+  "session_id": "session-1",
+  "runtime_id": "runtime-1",
+  "app_device_id": "device-1"
+}

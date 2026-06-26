@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ripdock.org/schemas/message-completed.schema.json",
+  "title": "message.completed",
+  "type": "object",
+  "required": ["type", "protocol_version"],
+  "properties": {
+    "type": { "const": "message.completed" },
+    "protocol_version": { "const": "1" },
+    "conversation_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "message_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "artifact_ids": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "uniqueItems": true
+    }
+  },
+  "additionalProperties": false
+}

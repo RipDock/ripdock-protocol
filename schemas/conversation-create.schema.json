@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ripdock.org/schemas/conversation-create.schema.json",
+  "title": "conversation.create",
+  "description": "App request to create a Runtime-owned conversation without sending user content.",
+  "type": "object",
+  "required": ["type", "protocol_version", "runtime_id", "agent_id", "client_message_id"],
+  "properties": {
+    "type": { "const": "conversation.create" },
+    "protocol_version": { "const": "1" },
+    "runtime_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "agent_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "client_message_id": {
+      "type": "string",
+      "minLength": 1
+    }
+  },
+  "additionalProperties": false
+}

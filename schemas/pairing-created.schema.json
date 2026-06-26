@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ripdock.org/schemas/pairing-created.schema.json",
+  "title": "pairing.created",
+  "type": "object",
+  "required": ["type", "protocol_version", "pairing_code", "session_id"],
+  "properties": {
+    "type": { "const": "pairing.created" },
+    "protocol_version": { "const": "1" },
+    "pairing_code": {
+      "type": "string",
+      "pattern": "^[0-9]{6}$"
+    },
+    "session_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "runtime_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "runtime_public_key": {
+      "$ref": "./p256-jwk-public-key.schema.json"
+    },
+    "runtime_public_key_fingerprint": {
+      "description": "MUST equal runtime_public_key.key_id.",
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "runtime_identity": {
+      "$ref": "./runtime-identity-model.schema.json"
+    }
+  },
+  "additionalProperties": false
+}

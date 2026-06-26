@@ -1,0 +1,13 @@
+{
+  "type": "runtime.transfer.request",
+  "protocol_version": "1",
+  "payload": {
+    "transfer_id": "transfer-id-1",
+    "artifact_id": "artifact-id-1",
+    "filename": "Name",
+    "mime_type": "image/png",
+    "size_bytes": 1,
+    "download_url": "https://runtime.example/ripdock/transfer/transfer-1/artifact",
+    "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+  }
+}

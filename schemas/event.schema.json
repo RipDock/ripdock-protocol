@@ -1,0 +1,10 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ripdock.org/schemas/event.schema.json",
+  "title": "RipDock Protocol Event",
+  "description": "Complete v1 protocol event union across main and transfer WebSocket channels.",
+  "anyOf": [
+    { "$ref": "./main-event.schema.json" },
+    { "$ref": "./transfer-event.schema.json" }
+  ]
+}

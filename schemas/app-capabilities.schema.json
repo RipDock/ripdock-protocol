@@ -1,0 +1,119 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ripdock.org/schemas/app-capabilities.schema.json",
+  "title": "app.capabilities",
+  "description": "App rendering and interaction capability announcement.",
+  "type": "object",
+  "required": ["type", "protocol_version", "payload"],
+  "properties": {
+    "type": { "const": "app.capabilities" },
+    "protocol_version": { "const": "1" },
+    "payload": {
+      "type": "object",
+      "required": ["content_types", "features", "client_capabilities"],
+      "properties": {
+        "content_types": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        },
+        "features": {
+          "type": "object",
+          "required": [
+            "streaming",
+            "semantic_blocks",
+            "attachments",
+            "generated_artifacts",
+            "runtime_transfers",
+            "artifact_http_downloads",
+            "artifact_ack",
+            "inline_images",
+            "tool_cards",
+            "html"
+          ],
+          "properties": {
+            "streaming": { "type": "boolean" },
+            "semantic_blocks": { "type": "boolean" },
+            "attachments": { "type": "boolean" },
+            "generated_artifacts": { "type": "boolean" },
+            "runtime_transfers": { "type": "boolean" },
+            "artifact_http_downloads": { "type": "boolean" },
+            "artifact_ack": { "type": "boolean" },
+            "inline_images": { "type": "boolean" },
+            "tool_cards": { "type": "boolean" },
+            "html": { "type": "boolean" }
+          },
+          "additionalProperties": false
+        },
+        "app_metadata": {
+          "type": "object",
+          "properties": {
+            "selected_runtime_type": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "additionalProperties": false
+        },
+        "client_capabilities": {
+          "type": "object",
+          "required": ["content_rendering", "rich_text_v1"],
+          "properties": {
+            "content_rendering": {
+              "type": "object",
+              "required": ["plain_text", "basic_markdown", "rich_text_v1", "json", "yaml", "code_blocks", "external_links"],
+              "properties": {
+                "plain_text": { "type": "boolean" },
+                "basic_markdown": { "type": "boolean" },
+                "rich_text_v1": { "type": "boolean" },
+                "json": { "type": "boolean" },
+                "yaml": { "type": "boolean" },
+                "code_blocks": { "type": "boolean" },
+                "external_links": { "type": "boolean" }
+              },
+              "additionalProperties": false
+            },
+            "rich_text_v1": {
+              "type": "object",
+              "required": ["bold", "italic", "underline", "inline_code", "code_blocks", "lists", "quotes"],
+              "properties": {
+                "bold": { "type": "boolean" },
+                "italic": { "type": "boolean" },
+                "underline": { "type": "boolean" },
+                "inline_code": { "type": "boolean" },
+                "code_blocks": { "type": "boolean" },
+                "lists": { "type": "boolean" },
+                "quotes": { "type": "boolean" }
+              },
+              "additionalProperties": false
+            }
+          },
+          "additionalProperties": false
+        },
+        "artifact_limits": {
+          "type": "object",
+          "properties": {
+            "max_artifact_bytes": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "max_chunk_bytes": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "transfer_timeout_seconds": {
+              "type": "integer",
+              "minimum": 1
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

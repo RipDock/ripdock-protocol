@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ripdock.org/schemas/app-identity.schema.json",
+  "title": "app.identity",
+  "description": "Persistent App identity announcement.",
+  "type": "object",
+  "required": ["type", "protocol_version", "app_device_id"],
+  "properties": {
+    "type": { "const": "app.identity" },
+    "protocol_version": { "const": "1" },
+    "app_device_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "app_public_key": {
+      "$ref": "./p256-jwk-public-key.schema.json"
+    },
+    "app_public_key_fingerprint": {
+      "description": "MUST equal app_public_key.key_id.",
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "device_identity": {
+      "$ref": "./device-identity-model.schema.json"
+    },
+    "app_display_name": {
+      "type": "string",
+      "minLength": 1
+    }
+  },
+  "additionalProperties": false
+}

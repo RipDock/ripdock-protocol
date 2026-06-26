@@ -1,0 +1,5 @@
+{
+  "type": "pairing.connected",
+  "protocol_version": "1",
+  "session_id": "session-id-1"
+}

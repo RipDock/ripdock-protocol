@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ripdock.org/schemas/runtime-identity-model.schema.json",
+  "title": "RuntimeIdentity",
+  "description": "Stable cryptographic Runtime identity. This is not hostname identity.",
+  "type": "object",
+  "required": [
+    "runtimeId",
+    "displayName",
+    "publicKey",
+    "publicKeyFingerprint",
+    "createdAt",
+    "protocolVersion"
+  ],
+  "properties": {
+    "runtimeId": {
+      "type": "string",
+      "pattern": "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$"
+    },
+    "displayName": {
+      "description": "Display name associated with this Runtime identity. Runtime-owned mutable display metadata is represented by RuntimeMetadata.",
+      "type": "string",
+      "minLength": 1
+    },
+    "publicKey": {
+      "$ref": "./p256-jwk-public-key.schema.json"
+    },
+    "publicKeyFingerprint": {
+      "description": "MUST equal publicKey.key_id.",
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "createdAt": {
+      "type": "string",
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}(\\.[0-9]+)?Z$"
+    },
+    "protocolVersion": {
+      "const": "1"
+    }
+  },
+  "additionalProperties": false
+}

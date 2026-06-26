@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ripdock.org/schemas/transfer-request.schema.json",
+  "title": "transfer.request",
+  "description": "Request to open a separate transfer channel for a single file.",
+  "type": "object",
+  "required": ["type", "protocol_version", "conversation_id", "payload"],
+  "properties": {
+    "type": { "const": "transfer.request" },
+    "protocol_version": { "const": "1" },
+    "conversation_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "payload": {
+      "type": "object",
+      "required": ["mime_type", "size_bytes"],
+      "properties": {
+        "mime_type": {
+          "enum": ["image/jpeg", "image/png", "application/pdf"]
+        },
+        "size_bytes": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 10485760
+        },
+        "filename": {
+          "type": "string",
+          "minLength": 1
+        },
+        "direction": {
+          "enum": ["app_to_runtime", "runtime_to_app"]
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

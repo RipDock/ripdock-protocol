@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ripdock.org/schemas/pairing-result.schema.json",
+  "title": "PairingResult",
+  "description": "Result of a Pairing attempt for one Device and one Runtime.",
+  "type": "object",
+  "required": ["runtimeId", "deviceId", "trustState", "message"],
+  "properties": {
+    "runtimeId": {
+      "type": "string",
+      "minLength": 1
+    },
+    "deviceId": {
+      "type": "string",
+      "minLength": 1
+    },
+    "trustState": {
+      "$ref": "./trust-state.schema.json"
+    },
+    "message": {
+      "type": "string",
+      "minLength": 1
+    },
+    "session_id": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Durable Session ID for session.resume on /ripdock/app when this trusted Runtime is chat-ready."
+    },
+    "runtimeMetadata": {
+      "description": "Runtime-owned display metadata. MUST be present only when trustState is trusted.",
+      "$ref": "./runtime-metadata.schema.json"
+    },
+    "runtimeAgents": {
+      "type": "array",
+      "description": "Enabled, App-visible Agent definitions. MUST be present only when trustState is trusted.",
+      "items": {
+        "$ref": "./runtime-agents.schema.json#/$defs/agent_definition"
+      }
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ripdock.org/schemas/session-expired.schema.json",
+  "title": "session.expired",
+  "description": "Notification that a durable Session can no longer be resumed.",
+  "type": "object",
+  "required": ["type", "protocol_version", "session_id", "code"],
+  "properties": {
+    "type": { "const": "session.expired" },
+    "protocol_version": { "const": "1" },
+    "session_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "reason": {
+      "type": "string"
+    },
+    "code": {
+      "const": "session.expired"
+    },
+    "connection_security_error": {
+      "$ref": "./connection-security-error.schema.json"
+    },
+    "expired_at": {
+      "type": "string",
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}(\\.[0-9]+)?Z$"
+    }
+  },
+  "additionalProperties": false
+}

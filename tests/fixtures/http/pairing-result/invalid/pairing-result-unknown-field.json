@@ -1,0 +1,7 @@
+{
+  "runtimeId": "runtime-1",
+  "deviceId": "device-1",
+  "trustState": "trusted",
+  "message": "Device is trusted.",
+  "token": "secret"
+}

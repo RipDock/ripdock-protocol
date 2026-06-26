@@ -1,0 +1,8 @@
+{
+  "type": "runtime.settings.update",
+  "protocol_version": "1",
+  "runtime_id": "runtime-id-1",
+  "settings": {
+    "value-1": true
+  }
+}

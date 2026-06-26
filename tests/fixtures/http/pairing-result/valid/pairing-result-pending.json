@@ -1,0 +1,6 @@
+{
+  "runtimeId": "runtime-1",
+  "deviceId": "device-1",
+  "trustState": "pendingApproval",
+  "message": "Device is pending approval."
+}

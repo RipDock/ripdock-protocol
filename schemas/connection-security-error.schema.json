@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ripdock.org/schemas/connection-security-error.schema.json",
+  "title": "ConnectionSecurityError",
+  "description": "Connection security failure codes.",
+  "type": "string",
+  "enum": [
+    "insecureTransport",
+    "runtimeIdentityMismatch",
+    "runtimeKeyChanged",
+    "deviceNotTrusted",
+    "pairingExpired",
+    "runtimeRevokedDevice",
+    "invalidSignature",
+    "staleResumeTimestamp",
+    "reusedResumeNonce",
+    "routeMismatch",
+    "sessionExpired",
+    "unsupportedProtocolVersion"
+  ]
+}

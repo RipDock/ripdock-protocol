@@ -1,0 +1,84 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ripdock.org/schemas/pairing-connected.schema.json",
+  "title": "pairing.connected",
+  "type": "object",
+  "required": ["type", "protocol_version", "session_id"],
+  "properties": {
+    "type": { "const": "pairing.connected" },
+    "protocol_version": { "const": "1" },
+    "session_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "trust_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "app_device_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "app_public_key": {
+      "$ref": "./p256-jwk-public-key.schema.json"
+    },
+    "app_public_key_fingerprint": {
+      "description": "MUST equal app_public_key.key_id.",
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "app_display_name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "device_identity": {
+      "$ref": "./device-identity-model.schema.json"
+    },
+    "runtime_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "runtime_public_key": {
+      "$ref": "./p256-jwk-public-key.schema.json"
+    },
+    "runtime_public_key_fingerprint": {
+      "description": "MUST equal runtime_public_key.key_id.",
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "runtime_identity": {
+      "$ref": "./runtime-identity-model.schema.json"
+    },
+    "runtime_metadata": {
+      "$ref": "./runtime-metadata.schema.json"
+    },
+    "trust_state": {
+      "$ref": "./trust-state.schema.json"
+    },
+    "selected_runtime_type": {
+      "type": "string",
+      "minLength": 1
+    },
+    "app_metadata": {
+      "type": "object",
+      "properties": {
+        "selected_runtime_type": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "session_metadata": {
+      "type": "object",
+      "properties": {
+        "selected_runtime_type": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}
